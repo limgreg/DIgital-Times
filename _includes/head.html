@@ -9,15 +9,169 @@
 {%- comment %} https://docs.google.com/presentation/d/1rmxwWa9P6_xHqonmh5ONXRS-jPc5XKbnv99Rjkhe04s/present {% endcomment -%}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- DigitalTimes Custom Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- DigitalTimes Brand Meta -->
+<meta name="theme-color" content="#3b82f6">
+<meta name="msapplication-TileColor" content="#3b82f6">
+
+<!-- Enhanced SEO for DigitalTimes -->
+<meta property="og:site_name" content="DigitalTimes">
+<meta name="twitter:site" content="@digitaltimes_sg">
+<meta name="author" content="DigitalTimes Editorial Team">
+
 <script>
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
-  {% if site.enable_copy_code_button -%}
+  {% if site.enable_copy_code_button %}
     window.enable_copy_code_button = true;
-  {%- endif %}
+  {% endif %}
 </script>
 
 <!-- For all browsers -->
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
+<!-- DigitalTimes Custom Styles - Add after main.css to override -->
+<style>
+/* DigitalTimes Custom Theme Overrides */
+:root {
+  --dt-primary: #3b82f6;
+  --dt-primary-dark: #1d4ed8;
+  --dt-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  --dt-bg: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  --dt-glass: rgba(255, 255, 255, 0.8);
+  --dt-text: #334155;
+  --dt-text-light: #64748b;
+  --dt-border-radius: 20px;
+}
+
+/* Override theme fonts with Inter */
+html {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  background: var(--dt-bg) !important;
+  color: var(--dt-text) !important;
+}
+
+/* Modern header styling */
+.masthead {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.1) !important;
+  box-shadow: none !important;
+}
+
+.site-title {
+  font-weight: 700 !important;
+  font-size: 1.75rem !important;
+  background: var(--dt-gradient) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  letter-spacing: -0.5px !important;
+}
+
+/* Rounded corners for cards */
+.archive__item,
+.page__content .archive__item,
+.list__item {
+  background: var(--dt-glass) !important;
+  backdrop-filter: blur(10px) !important;
+  border-radius: var(--dt-border-radius) !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  padding: 2rem !important;
+  margin-bottom: 2rem !important;
+  transition: all 0.3s ease !important;
+}
+
+.archive__item:hover,
+.page__content .archive__item:hover,
+.list__item:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Smooth buttons */
+.btn {
+  border-radius: 50px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn--primary {
+  background: var(--dt-gradient) !important;
+  border: none !important;
+}
+
+.btn--primary:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px 0 rgba(59, 130, 246, 0.3) !important;
+}
+
+/* Navigation styling */
+.greedy-nav a {
+  color: var(--dt-text-light) !important;
+  font-weight: 500 !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 50px !important;
+  transition: all 0.3s ease !important;
+}
+
+.greedy-nav a:hover {
+  background: rgba(59, 130, 246, 0.05) !important;
+  color: var(--dt-primary) !important;
+}
+
+/* Page content styling */
+.page__content {
+  background: transparent !important;
+}
+
+.page__content h1,
+.page__content h2,
+.page__content h3 {
+  color: var(--dt-text) !important;
+  font-weight: 700 !important;
+}
+
+.page__content table {
+  background: var(--dt-glass) !important;
+  backdrop-filter: blur(10px) !important;
+  border-radius: 16px !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  overflow: hidden !important;
+}
+
+.page__content table th {
+  background: var(--dt-gradient) !important;
+  color: white !important;
+  font-weight: 600 !important;
+}
+
+/* Footer modern styling */
+.page__footer {
+  background: #0f172a !important;
+  color: #cbd5e1 !important;
+  border-radius: 32px 32px 0 0 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .archive__item,
+  .page__content .archive__item,
+  .list__item {
+    padding: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+}
+</style>
+
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
 

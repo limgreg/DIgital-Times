@@ -1,4 +1,560 @@
 ---
-layout: home
-author_profile: true
+layout: default
 ---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site.title }} - Your Digital Insights Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            color: #334155;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 0;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #64748b;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+        }
+
+        .nav-menu a:hover {
+            color: #3b82f6;
+            background: rgba(59, 130, 246, 0.05);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0 6rem 0;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #64748b;
+            margin-bottom: 3rem;
+            font-weight: 400;
+        }
+
+        /* Featured Article Card */
+        .featured-section {
+            margin: 4rem 0;
+        }
+
+        .featured-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 1.875rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .featured-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 
+                0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .featured-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 
+                0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .featured-category {
+            display: inline-block;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .featured-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .featured-title a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        .featured-title a:hover {
+            color: #3b82f6;
+        }
+
+        .featured-excerpt {
+            color: #64748b;
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .featured-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #94a3b8;
+            font-size: 0.875rem;
+        }
+
+        .read-time {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Recent Posts Grid */
+        .recent-posts {
+            margin: 6rem 0;
+        }
+
+        .posts-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .post-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 
+                0 1px 3px 0 rgba(0, 0, 0, 0.1),
+                0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .post-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 
+                0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .post-category {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .post-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .post-title a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        .post-title a:hover {
+            color: #3b82f6;
+        }
+
+        .post-excerpt {
+            color: #64748b;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .post-meta {
+            color: #94a3b8;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            padding: 4rem 0;
+            margin: 6rem 0 0 0;
+            border-radius: 32px 32px 0 0;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .cta-subtitle {
+            font-size: 1.125rem;
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px 0 rgba(59, 130, 246, 0.5);
+        }
+
+        /* Footer */
+        .footer {
+            background: #0f172a;
+            color: #cbd5e1;
+            padding: 3rem 0 2rem 0;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .footer-description {
+            color: #64748b;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #3b82f6;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 2rem;
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 1rem;
+            }
+            
+            .nav-menu {
+                gap: 1rem;
+            }
+            
+            .hero-container,
+            .featured-container,
+            .posts-container,
+            .cta-container {
+                padding: 0 1rem;
+            }
+            
+            .featured-card {
+                padding: 2rem;
+            }
+            
+            .posts-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Floating elements animation */
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="/" class="logo">DigitalTimes</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="/categories/#technology">Technology</a></li>
+                    <li><a href="/categories/#mobile">Mobile Plans</a></li>
+                    <li><a href="/categories/#reviews">Reviews</a></li>
+                    <li><a href="/categories/#guides">Guides</a></li>
+                    <li><a href="/about/">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Your <span class="hero-gradient">Digital Insights</span> Hub</h1>
+            <p class="hero-subtitle">Curating the best technology reviews, mobile plan comparisons, and digital insights for Singapore's connected community.</p>
+        </div>
+    </section>
+
+    <!-- Featured Article -->
+    <section class="featured-section">
+        <div class="featured-container">
+            <h2 class="section-title">Featured Story</h2>
+            <article class="featured-card">
+                <div class="featured-category">Mobile Plans</div>
+                <h3 class="featured-title">
+                    <a href="{{ site.posts.first.url }}">
+                        {% if site.posts.first %}
+                            {{ site.posts.first.title }}
+                        {% else %}
+                            Complete Singapore Mobile Plans 2025: All Telcos Compared
+                        {% endif %}
+                    </a>
+                </h3>
+                <p class="featured-excerpt">
+                    {% if site.posts.first %}
+                        {{ site.posts.first.excerpt | strip_html | truncate: 200 }}
+                    {% else %}
+                        Ultimate comparison of ALL Singapore telcos including eSIM availability, costs, speeds, and features. Updated for 2025 with new providers including Singtel, M1, StarHub, Gomo, TPG, and 10+ MVNOs.
+                    {% endif %}
+                </p>
+                <div class="featured-meta">
+                    <div class="read-time">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12,6 12,12 16,14"></polyline>
+                        </svg>
+                        17 minute read
+                    </div>
+                    <div>{{ "now" | date: "%B %d, %Y" }}</div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Recent Posts -->
+    <section class="recent-posts">
+        <div class="posts-container">
+            <h2 class="section-title">Latest Articles</h2>
+            <div class="posts-grid">
+                <!-- Sample cards for preview - these will be replaced by Jekyll post loop -->
+                <article class="post-card">
+                    <div class="post-category">Technology</div>
+                    <h3 class="post-title">
+                        <a href="#">Best eSIM Plans for Digital Nomads in Southeast Asia</a>
+                    </h3>
+                    <p class="post-excerpt">Comprehensive guide to staying connected while traveling across ASEAN countries with the most cost-effective eSIM solutions.</p>
+                    <div class="post-meta">5 min read • Technology</div>
+                </article>
+
+                <article class="post-card">
+                    <div class="post-category">Reviews</div>
+                    <h3 class="post-title">
+                        <a href="#">iPhone 16 Pro in Singapore: Is It Worth the Upgrade?</a>
+                    </h3>
+                    <p class="post-excerpt">Detailed review of Apple's latest flagship covering performance, camera improvements, and value proposition for Singapore users.</p>
+                    <div class="post-meta">8 min read • Reviews</div>
+                </article>
+
+                <article class="post-card">
+                    <div class="post-category">Finance</div>
+                    <h3 class="post-title">
+                        <a href="#">Digital Banking in Singapore: Complete 2025 Comparison</a>
+                    </h3>
+                    <p class="post-excerpt">Compare GXS Bank, Trust Bank, and traditional banks' digital offerings to find the best fit for your financial needs.</p>
+                    <div class="post-meta">12 min read • Finance</div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2 class="cta-title">Stay Ahead of the Digital Curve</h2>
+            <p class="cta-subtitle">Get weekly insights on the latest tech trends, product reviews, and smart buying guides delivered to your inbox.</p>
+            <a href="#newsletter" class="cta-button">Subscribe to Our Newsletter</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">DigitalTimes</div>
+            <p class="footer-description">
+                Your trusted source for technology insights, product reviews, and smart digital choices in Singapore and beyond.
+            </p>
+            <nav class="footer-links">
+                <a href="/about/">About Us</a>
+                <a href="/privacy/">Privacy Policy</a>
+                <a href="/contact/">Contact</a>
+                <a href="/advertise/">Advertise</a>
+                <a href="/sitemap.xml">Sitemap</a>
+            </nav>
+            <div class="footer-bottom">
+                <p>&copy; {{ "now" | date: "%Y" }} DigitalTimes. All rights reserved. | Crafted with ❤️ in Singapore</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
