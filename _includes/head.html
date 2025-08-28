@@ -35,6 +35,26 @@
 
 <!-- DigitalTimes Custom Styles - Add after main.css to override -->
 <style>
+
+/* Hide the Quick-Start Guide text */
+.greedy-nav__toggle,
+.hidden-links,
+.masthead__menu-item,
+.greedy-nav .hidden-links,
+.greedy-nav .visible-links .masthead__menu-item:last-child {
+    display: none !important;
+}
+
+/* Clean up header spacing */
+.greedy-nav {
+    justify-content: space-between !important;
+}
+
+.visible-links {
+    display: flex !important;
+    gap: 2rem !important;
+}
+
 /* DigitalTimes Custom Theme Overrides */
 :root {
   --dt-primary: #3b82f6;
